@@ -1,0 +1,82 @@
+<div class="grid">
+    <div class="col-12">
+      <div class="card px-6 py-6">
+        <p-toast></p-toast>
+        <form [formGroup]="quizForm" (ngSubmit)="addQuiz()">
+          <div class="p-fluid">
+            <div class="field">
+              <label for="title">Title</label>
+              <input id="title" type="text" pInputText formControlName="title"
+                [ngClass]="{'ng-invalid ng-dirty': submitted && title?.invalid}" />
+              <small *ngIf="submitted && title?.invalid" class="ng-invalid">Title is required.</small>
+            </div>
+            <div class="field">
+              <label for="description">Description</label>
+              <input id="description" type="text" pInputText formControlName="description" />
+            </div>
+            <div class="field">
+                <label for="formations">Formations</label>
+                <p-dropdown [options]="formations" optionLabel="name" formControlName="formations"
+                  placeholder="Select a Formation">
+                </p-dropdown>
+              </div>
+              
+          </div>
+          <div class="field">
+            <label>Questions</label>
+    
+            <div formArrayName="questions">
+              <div *ngFor="let question of questions.controls; let i = index" [formGroupName]="i">
+                <div class="card">
+                  <div class="p-fluid">
+                    <div class="field">
+                      <label for="content-{{i}}">Question Content</label>
+                      <input id="content-{{i}}" type="text" pInputText formControlName="content"
+                        [ngClass]="{'ng-invalid ng-dirty': submitted && question.get('content')?.invalid}" />
+                      <small *ngIf="submitted && question.get('content')?.invalid" class="ng-invalid">Question content
+                        is required.</small>
+                    </div>
+                  </div>
+                  <div formArrayName="options">
+                    <div *ngFor="let option of question.get('options').controls; let j = index" [formGroupName]="j">
+                      <div class="p-fluid grid">
+                        <div class="col-8 field">
+                          <label for="option-content-{{i}}-{{j}}">Option {{j + 1}}</label>
+                          <input id="option-content-{{i}}-{{j}}" type="text" pInputText formControlName="content"
+                            [ngClass]="{'ng-invalid ng-dirty': submitted && option.get('content')?.invalid}" />
+                          <small *ngIf="submitted && option.get('content')?.invalid"
+                            class="ng-invalid">Option content is required.</small>
+                        </div>
+                        <div class="col-4 field-checkbox">
+                          <label for="option-isCorrect-{{i}}-{{j}}">Correct</label>
+                          <p-checkbox id="option-isCorrect-{{i}}-{{j}}" formControlName="isCorrect" binary="true"></p-checkbox>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <button pButton pRipple label="Delete Question" icon="pi pi-trash" class="p-button-danger mt-2"
+                      (click)="deleteQuestion(i)" type="button"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button pButton pRipple label="Add Question" icon="pi pi-plus" class="p-button-success mb-2"
+          (click)="addQuestion()" type="button"></button>
+          <div class="field">
+            <button pButton pRipple label="Save Quiz" icon="pi pi-check" class="p-button-primary mt-4" type="submit">
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <p-dialog [(visible)]="questionDialog" [style]="{width: '450px'}" header="Question Details" [modal]="true" class="p-fluid">
+    <ng-template pTemplate="footer">
+      <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+      <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="hideDialog()"></button>
+    </ng-template>
+  </p-dialog>
+  
