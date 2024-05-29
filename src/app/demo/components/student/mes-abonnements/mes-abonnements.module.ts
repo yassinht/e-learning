@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { MesAbonnementsRoutingModule } from './mes-abonnements-routing.module';
 import { MesAbonnementsComponent } from './mes-abonnements/mes-abonnements.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { ButtonModule } from 'primeng/button';
 
 
 @NgModule({
@@ -11,7 +13,8 @@ import { MesAbonnementsComponent } from './mes-abonnements/mes-abonnements.compo
   ],
   imports: [
     CommonModule,
-    MesAbonnementsRoutingModule
+    MesAbonnementsRoutingModule,  DropdownModule, // Include DropdownModule
+    ButtonModule // Include ButtonModule
   ]
 })
 export class MesAbonnementsModule { }
