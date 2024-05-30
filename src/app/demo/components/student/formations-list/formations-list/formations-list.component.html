@@ -1,28 +1,31 @@
+<!-- src/app/formations-list/formations-list.component.html -->
 <div class="surface-ground px-4 py-5 md:px-6 lg:px-8">
-    <div class="p-inputgroup mb-3">
-      <input type="text" pInputText placeholder="Search by name" [(ngModel)]="searchTerm" (ngModelChange)="filterFormations()">
-      <button pButton type="button" label="Reset" (click)="resetDropdown()"></button>
-    </div>
-    <p-dropdown [options]="categories" optionLabel="label" [(ngModel)]="selectedCategory" placeholder="Select a category" (ngModelChange)="filterFormations()"></p-dropdown>
-    <br><br>
-    <div class="grid">
-      <div *ngFor="let formation of filteredFormations" class="col-12 md:col-6 lg:col-4">
-        <div class="p-card shadow-2 p-3 border-round">
-          <div class="p-card-body">
-            <div class="flex justify-content-between mb-3">
-              <div>
-                <h5 class="mb-2">{{ formation.name }}</h5>
-                <p>{{ formation.description }}</p>
-              </div>
-              <div class="flex align-items-center justify-content-center bg-blue-100 border-round" style="width:3rem;height:3rem">
-                <i class="pi pi-book text-blue-500 text-2xl"></i>
-              </div>
+  <div class="p-inputgroup mb-3">
+    <input type="text" pInputText placeholder="Search by name" [(ngModel)]="searchTerm" (ngModelChange)="filterFormations()">
+    <button pButton type="button" label="Reset" (click)="resetDropdown()"></button>
+  </div>
+  <p-dropdown [options]="categories" optionLabel="label" [(ngModel)]="selectedCategory" placeholder="Select a category" (ngModelChange)="filterFormations()"></p-dropdown>
+  <br><br>
+  <div class="grid">
+    <div *ngFor="let formation of filteredFormations" class="col-12 md:col-6 lg:col-4">
+      <div class="p-card shadow-2 p-3 border-round">
+        <div class="p-card-body">
+          <div class="flex justify-content-between mb-3">
+            <div>
+              <h5 class="mb-2">{{ formation.name }}</h5>
+              <p>{{ formation.description }}</p>
             </div>
-            <button pButton type="button" label="Enter" icon="pi pi-sign-in" (click)="enterFormation(formation)"></button>
+            <div class="flex align-items-center justify-content-center bg-blue-100 border-round" style="width:3rem;height:3rem">
+              <i class="pi pi-book text-blue-500 text-2xl"></i>
+            </div>
           </div>
+          <button pButton type="button" label="Enter" icon="pi pi-sign-in" (click)="enterFormation(formation)"></button>
         </div>
       </div>
     </div>
-    <!-- Messages area -->
   </div>
+  <!-- Messages area -->
+  <!-- <p-toast></p-toast> -->
   
+  <!-- Add this to display messages -->
+</div>

@@ -3,6 +3,7 @@ import { AbonnementService } from 'src/app/demo/service/abonnement.service';
 import { CategoryService } from 'src/app/demo/service/category.service';
 import { FormationService } from 'src/app/demo/service/formation.service';
 import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formations-list',
@@ -22,8 +23,9 @@ export class FormationsListComponent implements OnInit {
     private categorService: CategoryService,
     private formationService: FormationService,
     private abonnementService: AbonnementService,
-    private messageService: MessageService // Inject MessageService
-  ) {}
+    private messageService: MessageService, // Inject MessageService
+    private router: Router // Inject Router
+    ) {}
 
   ngOnInit() {
     this.idStudent = localStorage.getItem('id_student');
@@ -64,6 +66,8 @@ export class FormationsListComponent implements OnInit {
             detail: `Navigating to formation details for ${formation.name}`,
             life: 3000
           });
+          this.router.navigate(['/student/formation-details', formation._id]); // Navigate to formation details
+
           break;
         case 'expired':
           this.messageService.add({

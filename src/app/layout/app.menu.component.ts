@@ -38,12 +38,10 @@ export class AppMenuComponent implements OnInit {
             {
                 label: 'student',
                 items: [
-                    { label: 'cours', icon: 'pi pi-fw pi-id-card', routerLink: ['/student/cours'] },
+                    { label: 'profil', icon: 'pi pi-fw pi-home', routerLink: ['/student/profil'] },
                     { label: 'formations', icon: 'pi pi-fw pi-home', routerLink: ['/student/formations'] },
                     { label: 'Abonnements', icon: 'pi pi-fw pi-check-square', routerLink: ['/student/Abonnements'] },
                     { label: 'quiz', icon: 'pi pi-fw pi-home', routerLink: ['/student/quiz'] },
-                    { label: 'profil', icon: 'pi pi-fw pi-home', routerLink: ['/student/profil'] },
-                    { label: 'teachers', icon: 'pi pi-fw pi-home', routerLink: ['/student/teachers'] }
 
 
                 ]
@@ -68,12 +66,12 @@ export class AppMenuComponent implements OnInit {
             {
                 label: 'Content Management',
                 items: [
-                    { label: 'Quiz', icon: 'pi pi-fw pi-id-card', routerLink: ['/teacher/quiz'] },
-                    { label: 'Cours', icon: 'pi pi-fw pi-id-card', routerLink: ['/teacher/cours'] },
-                    { label: 'Formations', icon: 'pi pi-fw pi-id-card', routerLink: ['/teacher/formation'] },
-                    { label: 'Students', icon: 'pi pi-fw pi-check-square', routerLink: ['/teacher/student/'] },
                     { label: 'profil', icon: 'pi pi-fw pi-check-square', routerLink: ['/teacher/profil'] },
-                    { label: 'my-quizs', icon: 'pi pi-fw pi-check-square', routerLink: ['/teacher/my-quizs'] }
+                    { label: 'formations', icon: 'pi pi-fw pi-home', routerLink: ['/teacher/formation'] },
+                    { label: 'Cours', icon: 'pi pi-fw pi-id-card', routerLink: ['/teacher/cours'] },
+                    { label: 'Quiz', icon: 'pi pi-fw pi-id-card', routerLink: ['/teacher/quiz'] },
+                    { label: 'my-quizs', icon: 'pi pi-fw pi-check-square', routerLink: ['/teacher/my-quizs'] },
+                    { label: 'Students', icon: 'pi pi-fw pi-check-square', routerLink: ['/teacher/student/'] },
 
 
                 ]
@@ -96,6 +94,8 @@ export class AppMenuComponent implements OnInit {
                     { label: 'Categories', icon: 'pi pi-fw pi-id-card', routerLink: ['/admin/ad-category'] },
                     { label: 'Students', icon: 'pi pi-fw pi-id-card', routerLink: ['/admin/ad-student'] },
                     { label: 'Teachers', icon: 'pi pi-fw pi-id-card', routerLink: ['/admin/ad-teacher'] },
+                    { label: 'Formations', icon: 'pi pi-fw pi-id-card', routerLink: ['/admin/formation'] },
+                    { label: 'Abonnements', icon: 'pi pi-fw pi-check-square', routerLink: ['/admin/Abonnements'] },
 
 
                 ]

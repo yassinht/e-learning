@@ -51,7 +51,8 @@ import { AdminDashboardComponent } from './demo/components/admin/admin-dashboard
               { path: 'quizs/quiz', loadChildren: () => import('./demo/components/student/my-quiz/my-quiz.module').then(m => m.MyQuizModule) },
               { path: 'quiz', loadChildren: () => import('./demo/components/student/my-quiz-list/my-quiz-list.module').then(m => m.MyQuizListModule) },
               { path: 'profil', loadChildren: () => import('./demo/components/student/student-profil/student-profil.module').then(m => m.StudentProfilModule) },
-              { path: 'teachers', loadChildren: () => import('./demo/components/student/teachers-list/teachers-list.module').then(m => m.TeachersListModule) }
+              { path: 'teachers', loadChildren: () => import('./demo/components/student/teachers-list/teachers-list.module').then(m => m.TeachersListModule) },
+              { path: 'formation-details/:id', loadChildren: () => import('./demo/components/student/formation-details/formation-details.module').then(m => m.FormationDetailsModule) }
 
 
             ]
